@@ -1,13 +1,14 @@
-<section class="projects" aria-label="Projects">
+<div class="projects">
   {% for project in site.data.projects %}
   <article class="project">
     <div class="project-image">
       <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt | escape }}" loading="lazy">
     </div>
     <div class="project-text">
-      <h2>{{ project.title | escape }}</h2>
+      <span class="project-number">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+      <h3>{{ project.title | escape }}</h3>
       {{ project.description | markdownify }}
     </div>
   </article>
   {% endfor %}
-</section>
+</div>
